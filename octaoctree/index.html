@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OctaOctree Neural Radiosity | Jierui Ren</title>
+    <meta
+      name="description"
+      content="Project page for OctaOctree Neural Radiosity: real-time glossy material rendering in static scenes."
+    />
+    <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../assets/img/favicon.png" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="inner">
+        <a class="brand" href="../">Jierui Ren</a>
+        <nav>
+          <a href="../#publications">Publications</a>
+          <a href="https://github.com/jieruijerry/OctaOctree">Code</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="paper-page">
+      <section class="paper-hero">
+        <p class="kicker">SIGGRAPH Asia 2026</p>
+        <h1>OctaOctree Neural Radiosity for Real-time Glossy Material Rendering</h1>
+        <p class="paper-authors">
+          <a href="../">Jierui Ren</a>, Haojie Jin, Bo Pang, Meng Gai, Fei Zhu,
+          Yisong Chen, Sheng Li
+        </p>
+        <p class="paper-venue">SIGGRAPH Asia 2026 Conference Papers</p>
+        <div class="links">
+          <a href="https://arxiv.org/abs/2606.08469">arXiv</a>
+          <a href="https://arxiv.org/pdf/2606.08469">PDF</a>
+          <a href="https://doi.org/10.1145/3829340.3842363">DOI</a>
+          <a href="https://github.com/jieruijerry/OctaOctree">Code</a>
+          <a href="#citation">BibTeX</a>
+        </div>
+      </section>
+
+      <section>
+        <h2>Abstract</h2>
+        <div class="abstract">
+          <p>
+            Modeling high-frequency outgoing radiance distributions remains a
+            fundamental challenge in global illumination, especially for glossy and
+            specular materials. Existing neural-based radiance caching methods commonly
+            rely on positional feature encodings or spatially organized caches, which
+            makes it difficult to represent sharp directional radiance variations
+            without increasing the model complexity or sampling cost.
+          </p>
+          <p>
+            To address this challenge, we propose OctaOctree, an efficient
+            spatial-angular radiance representation for global illumination. OctaOctree
+            organizes outgoing radiance with an adaptive octree in 3D space, and
+            associates each spatial node with an octahedral directional map. By
+            coupling the spatial hierarchy with direction-dependent storage, our
+            representation allocates fine spatial resolution to local illumination and
+            visibility changes, while using coarser spatial levels with richer angular
+            resolution to capture glossy and specular radiance distributions. This
+            design embeds a reflectance-aware spatial-angular prior directly into the
+            radiance representation, reducing the burden on neural networks or
+            reconstruction modules to recover high-frequency view-dependent effects
+            from positional features alone.
+          </p>
+          <p>
+            As a result, OctaOctree provides a compact and expressive neural encoding
+            for a wide range of indirect illumination effects, from diffuse
+            interreflection to sharp glossy reflections. Experiments demonstrate that
+            our method produces high-quality, direction-aware global illumination with
+            a single network query at primary intersections, achieving improved
+            fidelity and real-time performance compared with baseline neural radiosity
+            and radiance caching approaches.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Method</h2>
+        <div class="method">
+          <ul>
+            <li>
+              <strong>OctaOctree encoding.</strong> Sparse octree cells in 3D, each
+              with a multi-resolution octahedral map; spatial and angular resolution
+              are allocated in complementary directions across 8 hierarchy levels.
+            </li>
+            <li>
+              <strong>Parallax-aware lookup.</strong> A tiny Instant-NGP-style network
+              predicts a disparity-like correction that shifts the octahedral query
+              direction before barycentric interpolation.
+            </li>
+            <li>
+              <strong>Primary-hit inference.</strong> Rendering is G-buffer extraction
+              plus one cache query and one decoder evaluation per visible shading
+              point; no extra glossy cone rays at test time.
+            </li>
+          </ul>
+          <p>
+            Training, interactive viewing, and offline rendering are released with a
+            customized Mitsuba 3.5.2 backend.
+          </p>
+        </div>
+      </section>
+
+      <section id="citation">
+        <h2>Citation</h2>
+        <pre class="bibtex">@inproceedings{ren2026octaoctree,
+  title     = {OctaOctree Neural Radiosity for Real-time Glossy Material Rendering},
+  author    = {Ren, Jierui and Jin, Haojie and Pang, Bo and Gai, Meng and Zhu, Fei and Chen, Yisong and Li, Sheng},
+  booktitle = {SIGGRAPH Asia 2026 Conference Papers},
+  year      = {2026},
+  doi       = {10.1145/3829340.3842363},
+  eprint    = {2606.08469},
+  archiveprefix = {arXiv}
+}</pre>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2026 Jierui Ren.
+        <a href="../">Back to homepage</a>.
+      </p>
+    </footer>
+  </body>
+</html>
