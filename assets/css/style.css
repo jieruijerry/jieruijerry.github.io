@@ -162,11 +162,16 @@ h1 {
   border: 1px solid var(--line);
 }
 
+.pub > a {
+  line-height: 0;
+  text-decoration: none;
+}
+
 .pub-teaser {
   display: block;
-  width: 92px;
-  height: 62px;
-  object-fit: cover;
+  width: 108px;
+  height: 108px;
+  object-fit: contain;
   background: var(--paper);
   border: 1px solid var(--line);
 }
@@ -219,7 +224,8 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 54px;
+  width: 108px;
+  height: 108px;
   padding: 8px 6px;
   background: var(--chip);
   color: var(--accent);
@@ -442,8 +448,9 @@ footer {
     height: 165px;
   }
 
-  .pub-venue {
-    width: max-content;
-    min-height: auto;
+  .pub-venue,
+  .pub-teaser {
+    width: 96px;
+    height: 96px;
   }
 }

@@ -1,17 +1,20 @@
 # Paper teaser images
 
-Drop a landscape teaser for each paper here, then point to it from `index.html`.
+Use a **square** teaser (about 250×250) for each paper, then point to it from `index.html`.
 
-Suggested filenames:
+Current files:
 
-- `octaoctree.jpg`
-- `ncr.jpg`
-- `nrrs.jpg`
-- `vibraverse.jpg`
-- `dnr.jpg`
+- `octaoctree.png` — from `OctaOctree/scenes/OctaOctree.png`
+- `ncr.png` — from `neural-cone/scenes/network_250x250.png`
+
+Still needed:
+
+- `nrrs.png`
+- `vibraverse.png`
+- `dnr.png`
 
 In the corresponding `<article class="pub">`, replace the venue chip with:
 
 ```html
-<img class="pub-teaser" src="assets/img/papers/octaoctree.jpg" alt="OctaOctree teaser" />
+<img class="pub-teaser" src="assets/img/papers/octaoctree.png" alt="OctaOctree teaser" />
 ```
