@@ -149,6 +149,16 @@ h1 {
   color: var(--accent);
 }
 
+.links a:not([href]) {
+  color: var(--muted);
+  cursor: default;
+}
+
+.links a:not([href]):hover {
+  border-color: var(--line);
+  color: var(--muted);
+}
+
 .portrait {
   margin: 0;
 }
@@ -294,6 +304,12 @@ h2 {
   font-size: 14px;
 }
 
+.pub-links a:not([href]) {
+  color: var(--muted);
+  text-decoration: none;
+  cursor: default;
+}
+
 .item {
   padding: 14px 0;
   border-bottom: 1px solid var(--line);
@@ -370,6 +386,15 @@ footer {
 
 .paper-hero .links {
   justify-content: center;
+}
+
+.paper-teaser {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 28px 0 0;
+  background: var(--paper);
+  border: 1px solid var(--line);
 }
 
 .paper-page h2 {
