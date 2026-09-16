@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Neural Cone Radiosity | Jierui Ren</title>
+    <title>Neural Cone Radiosity for Interactive Global Illumination with Glossy Materials | Jierui Ren</title>
     <meta
       name="description"
       content="Project page for Neural Cone Radiosity: interactive global illumination with glossy materials."
@@ -29,15 +29,23 @@
         <h1>Neural Cone Radiosity for Interactive Global Illumination with Glossy Materials</h1>
         <p class="paper-authors">
           <a href="../">Jierui Ren</a>, Haojie Jin, Bo Pang, Yisong Chen, Guoping Wang,
-          Sheng Li
+          Sheng Li<sup>*</sup>
         </p>
+        <p class="paper-affiliations">
+          Jierui Ren: College of Future Technology, Peking University.<br />
+          Haojie Jin, Bo Pang, Yisong Chen, Guoping Wang, Sheng Li: School of
+          Computer Science, Peking University.<br />
+          Guoping Wang and Sheng Li are also with the National Key Laboratory of
+          Intelligent Parallel Technology.
+        </p>
+        <p class="paper-note"><sup>*</sup>Corresponding author.</p>
         <p class="paper-venue">
           IEEE Transactions on Visualization and Computer Graphics, 2026
         </p>
         <div class="links">
           <a href="https://arxiv.org/abs/2509.07522">arXiv</a>
           <a href="https://github.com/jieruijerry/neural-cone">Code</a>
-          <a>Video</a>
+          <a href="#video">Video</a>
           <a href="supplement.pdf">Supp</a>
           <a href="#citation">BibTeX</a>
         </div>
@@ -48,12 +56,27 @@
         />
       </section>
 
+      <section id="video">
+        <h2>Video</h2>
+        <div
+          class="video-embed"
+          data-youtube="https://www.youtube.com/watch?v=Fs4RYpEzcf8"
+          data-bilibili="https://www.bilibili.com/video/BV1cmec6fEyA/"
+        >
+          <div class="video-switch">
+            <button type="button" data-video-source="youtube">YouTube</button>
+            <button type="button" data-video-source="bilibili">Bilibili</button>
+          </div>
+          <div class="video-frame"></div>
+        </div>
+      </section>
+
       <section>
         <h2>Abstract</h2>
         <div class="abstract">
           <p>
             Modeling of high-frequency outgoing radiance distributions has long been a
-            key challenge in rendering, particularly for glossy material. Such
+            key challenge in rendering, particularly for glossy materials. Such
             distributions concentrate radiative energy within a narrow lobe and are
             highly sensitive to changes in view direction. However, existing neural
             radiosity methods, which primarily rely on positional feature encoding,
@@ -76,9 +99,9 @@
           </p>
           <p>
             Comprehensive experimental results demonstrate that our method consistently
-            produces high-quality, noise-free renderings in real time under various
-            glossiness conditions, and delivers superior fidelity and realism compared
-            to baseline approaches.
+            produces high-quality, visually clean renderings in real time under
+            various glossiness conditions, and delivers superior fidelity and realism
+            compared to baseline approaches.
           </p>
         </div>
       </section>
@@ -88,20 +111,16 @@
         <div class="method">
           <ul>
             <li>
-              <strong>Cone encoding.</strong> Instead of a single reflected ray, NCR
-              traces a roughness-dependent cone, embeds the cone–surface footprint into
-              a pre-filtered hash grid, and interpolates features at the matching
-              spatial scale.
+              We propose a pre-filtered radiance model that extends neural radiosity
+              to handle glossy materials efficiently.
             </li>
             <li>
-              <strong>Clustering approximation.</strong> Reflected rays inside the cone
-              are grouped with 1D <em>k</em>-means on marching distance; each cluster is
-              queried once and aggregated by sample weight.
+              We introduce a clustering-based approximation for integrating reflected
+              contributions across glossy BSDF lobe.
             </li>
             <li>
-              <strong>Dual-branch radiance model.</strong> A diffuse hash-grid MLP, a
-              compact glossy MLP, and a modulation network blend the two branches
-              according to roughness and reflectance.
+              We present a network architecture that integrates both primary surface
+              interactions and the projected contributions of glossy reflections.
             </li>
           </ul>
           <p>
@@ -130,5 +149,6 @@
         <a href="../">Back to homepage</a>.
       </p>
     </footer>
+    <script src="../assets/js/video-switch.js"></script>
   </body>
 </html>

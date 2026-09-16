@@ -13,6 +13,11 @@
   box-sizing: border-box;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 56px;
@@ -354,10 +359,11 @@ footer {
 .paper-hero {
   text-align: center;
   padding-bottom: 8px;
+  overflow: hidden;
 }
 
 .paper-hero h1 {
-  max-width: 18em;
+  max-width: 100%;
   margin: 0 auto 16px;
   font-size: 32px;
 }
@@ -366,6 +372,18 @@ footer {
   margin: 0 0 8px;
   color: var(--muted);
   font-size: 16px;
+}
+
+.paper-affiliations,
+.paper-note {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.paper-note {
+  margin-bottom: 12px;
 }
 
 .paper-authors a {
@@ -391,14 +409,78 @@ footer {
 .paper-teaser {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   margin: 28px 0 0;
+  box-sizing: border-box;
+  object-fit: contain;
   background: var(--paper);
   border: 1px solid var(--line);
 }
 
 .paper-page h2 {
   margin-top: 32px;
+}
+
+.video-switch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 12px;
+}
+
+.video-switch button {
+  padding: 4px 12px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--link);
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.video-switch button.is-active,
+.video-switch button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.video-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #1c1b18;
+  border: 1px solid var(--line);
+}
+
+.video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-empty {
+  margin: 0;
+  padding: 16px;
+  color: #efe8db;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 15px;
+  text-align: center;
+}
+
+.paper-local-video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background: #1c1b18;
+  border: 1px solid var(--line);
 }
 
 .paper-page .abstract,
