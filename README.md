@@ -1,6 +1,6 @@
 # Jierui Ren — Academic Homepage
 
-Static academic homepage for GitHub Pages. Preview `index.html` locally, then publish from a repository named `Jerry18231174.github.io`.
+Static academic homepage for GitHub Pages. Preview `index.html` locally, then publish from `jieruijerry/jieruijerry.github.io`.
 
 ## Local preview
 
@@ -14,10 +14,9 @@ Then visit `http://localhost:8000`.
 
 ## Publish to GitHub Pages
 
-1. Create a public GitHub repository named `Jerry18231174.github.io`.
-2. Push this folder to `main`.
-3. In the repository: **Settings → Pages → Deploy from a branch → `main` / `/ (root)`**.
-4. The site will be at `https://jerry18231174.github.io`.
+1. Push this folder to `main` on `jieruijerry/jieruijerry.github.io`.
+2. In the repository: **Settings → Pages → Deploy from a branch → `main` / `/ (root)`**.
+3. The site will be at `https://jieruijerry.github.io`.
 
 ## Fill in later
 
