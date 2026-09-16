@@ -18,6 +18,8 @@ Then visit `http://localhost:8000`.
 2. In the repository: **Settings → Pages → Deploy from a branch → `main` / `/ (root)`**.
 3. The site will be at `https://jieruijerry.github.io`.
 
+Paper project pages live in folders next to the homepage, for example `neural-cone/index.html` → `https://jieruijerry.github.io/neural-cone/`. Do not enable GitHub Pages on the code repositories, or that URL will collide with this site.
+
 ## Fill in later
 
 | Item | Where |

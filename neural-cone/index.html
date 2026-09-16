@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Neural Cone Radiosity | Jierui Ren</title>
+    <meta
+      name="description"
+      content="Project page for Neural Cone Radiosity: interactive global illumination with glossy materials."
+    />
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="inner">
+        <a class="brand" href="../">Jierui Ren</a>
+        <nav>
+          <a href="../#publications">Publications</a>
+          <a href="https://github.com/jieruijerry/neural-cone">Code</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="paper-page">
+      <section class="paper-hero">
+        <p class="kicker">IEEE TVCG 2026</p>
+        <h1>Neural Cone Radiosity for Interactive Global Illumination with Glossy Materials</h1>
+        <p class="paper-authors">
+          <a href="../">Jierui Ren</a>, Haojie Jin, Bo Pang, Yisong Chen, Guoping Wang,
+          Sheng Li
+        </p>
+        <p class="paper-venue">
+          IEEE Transactions on Visualization and Computer Graphics, 2026
+        </p>
+        <div class="links">
+          <a href="https://arxiv.org/abs/2509.07522">arXiv</a>
+          <a href="https://arxiv.org/pdf/2509.07522">PDF</a>
+          <a href="https://github.com/jieruijerry/neural-cone">Code</a>
+          <a href="#citation">BibTeX</a>
+        </div>
+      </section>
+
+      <section>
+        <h2>Abstract</h2>
+        <div class="abstract">
+          <p>
+            Modeling of high-frequency outgoing radiance distributions has long been a
+            key challenge in rendering, particularly for glossy material. Such
+            distributions concentrate radiative energy within a narrow lobe and are
+            highly sensitive to changes in view direction. However, existing neural
+            radiosity methods, which primarily rely on positional feature encoding,
+            exhibit notable limitations in capturing these high-frequency, strongly
+            view-dependent radiance distributions.
+          </p>
+          <p>
+            To address this, we propose a highly-efficient approach by
+            reflectance-aware ray cone encoding based on the neural radiosity
+            framework, named neural cone radiosity. The core idea is to employ a
+            pre-filtered multi-resolution hash grid to accurately approximate the
+            glossy BSDF lobe, embedding view-dependent reflectance characteristics
+            directly into the encoding process through continuous spatial aggregation.
+            Our design not only significantly improves the network's ability to model
+            high-frequency reflection distributions but also effectively handles
+            surfaces with a wide range of glossiness levels, from highly glossy to
+            low-gloss finishes. Meanwhile, our method reduces the network's burden in
+            fitting complex radiance distributions, allowing the overall architecture
+            to remain compact and efficient.
+          </p>
+          <p>
+            Comprehensive experimental results demonstrate that our method consistently
+            produces high-quality, noise-free renderings in real time under various
+            glossiness conditions, and delivers superior fidelity and realism compared
+            to baseline approaches.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Method</h2>
+        <div class="method">
+          <ul>
+            <li>
+              <strong>Cone encoding.</strong> Instead of a single reflected ray, NCR
+              traces a roughness-dependent cone, embeds the cone–surface footprint into
+              a pre-filtered hash grid, and interpolates features at the matching
+              spatial scale.
+            </li>
+            <li>
+              <strong>Clustering approximation.</strong> Reflected rays inside the cone
+              are grouped with 1D <em>k</em>-means on marching distance; each cluster is
+              queried once and aggregated by sample weight.
+            </li>
+            <li>
+              <strong>Dual-branch radiance model.</strong> A diffuse hash-grid MLP, a
+              compact glossy MLP, and a modulation network blend the two branches
+              according to roughness and reflectance.
+            </li>
+          </ul>
+          <p>
+            Training, interactive viewing, and offline rendering are released with a
+            customized Mitsuba 3.5.2 backend.
+          </p>
+        </div>
+      </section>
+
+      <section id="citation">
+        <h2>Citation</h2>
+        <pre class="bibtex">@article{ren2026ncr,
+  title   = {Neural Cone Radiosity for Interactive Global Illumination with Glossy Materials},
+  author  = {Ren, Jierui and Jin, Haojie and Pang, Bo and Chen, Yisong and Wang, Guoping and Li, Sheng},
+  journal = {IEEE Transactions on Visualization and Computer Graphics},
+  year    = {2026},
+  eprint  = {2509.07522},
+  archiveprefix = {arXiv}
+}</pre>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2026 Jierui Ren.
+        <a href="../">Back to homepage</a>.
+      </p>
+    </footer>
+  </body>
+</html>
